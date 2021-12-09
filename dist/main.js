@@ -26,7 +26,7 @@ eval("\n\nmodule.exports = ansiHTML\n\n// Reference to https://github.com/sindre
   \**********************/
 /***/ (() => {
 
-eval("var author = 'Quangtv';\nconsole.log(\"Webpack demo with \".concat(author));\n\n//# sourceURL=webpack://webpack_demo/./src/index.js?");
+eval("var author = \"Quangtv\";\nconsole.log(\"Webpack demo with \".concat(author));\n\n//# sourceURL=webpack://webpack_demo/./src/index.js?");
 
 /***/ }),
 
@@ -356,7 +356,7 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("6a6462602339c975268d")
+/******/ 		__webpack_require__.h = () => ("601c0f2d355b0b443c29")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
