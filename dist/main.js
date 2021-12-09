@@ -24,10 +24,9 @@ eval("\n\nmodule.exports = ansiHTML\n\n// Reference to https://github.com/sindre
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_images_gaixinh_1_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/images/gaixinh-1.jpg */ \"./src/assets/images/gaixinh-1.jpg\");\n\n\nfunction createImgElement() {\n  var imgElement = document.createElement('img');\n  imgElement.src = _assets_images_gaixinh_1_jpg__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n  imgElement.alt = 'gaixinh-1';\n  return imgElement;\n}\n\ndocument.getElementById('root').appendChild(createImgElement());\n\n//# sourceURL=webpack://webpack_demo/./src/index.js?");
+eval("// import './css/style'\n\n//# sourceURL=webpack://webpack_demo/./src/index.js?");
 
 /***/ }),
 
@@ -42,14 +41,14 @@ eval("// Copyright Joyent, Inc. and other Node contributors.\n//\n// Permission 
 
 /***/ }),
 
-/***/ "./src/assets/images/gaixinh-1.jpg":
-/*!*****************************************!*\
-  !*** ./src/assets/images/gaixinh-1.jpg ***!
-  \*****************************************/
+/***/ "./node_modules/file-loader/dist/cjs.js??ruleSet[1].rules[1].rules[0].use[1]!./src/css/style.css":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js??ruleSet[1].rules[1].rules[0].use[1]!./src/css/style.css ***!
+  \*******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"src/assets/images/gaixinh-1.jpg\");\n\n//# sourceURL=webpack://webpack_demo/./src/assets/images/gaixinh-1.jpg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"src/css/style.css\");\n\n//# sourceURL=webpack://webpack_demo/./src/css/style.css?./node_modules/file-loader/dist/cjs.js??ruleSet%5B1%5D.rules%5B1%5D.rules%5B0%5D.use%5B1%5D");
 
 /***/ }),
 
@@ -127,6 +126,39 @@ eval("// Copyright Joyent, Inc. and other Node contributors.\n//\n// Permission 
 
 "use strict";
 eval("\n\nexports.decode = exports.parse = __webpack_require__(/*! ./decode */ \"./node_modules/querystring/decode.js\");\nexports.encode = exports.stringify = __webpack_require__(/*! ./encode */ \"./node_modules/querystring/encode.js\");\n\n\n//# sourceURL=webpack://webpack_demo/./node_modules/querystring/index.js?");
+
+/***/ }),
+
+/***/ "./src/css/style.css":
+/*!***************************!*\
+  !*** ./src/css/style.css ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoLinkTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoLinkTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoLinkTag.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoLinkTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoLinkTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ \"./node_modules/style-loader/dist/runtime/insertBySelector.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _node_modules_file_loader_dist_cjs_js_ruleSet_1_rules_1_rules_0_use_1_style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !!../../node_modules/file-loader/dist/cjs.js??ruleSet[1].rules[1].rules[0].use[1]!./style.css */ \"./node_modules/file-loader/dist/cjs.js??ruleSet[1].rules[1].rules[0].use[1]!./src/css/style.css\");\n\n      \n      \n      \n      \n\nvar options = {};\n\n\n      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_1___default().bind(null, \"head\");\n    \n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoLinkTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_file_loader_dist_cjs_js_ruleSet_1_rules_1_rules_0_use_1_style_css__WEBPACK_IMPORTED_MODULE_2__[\"default\"], options);\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});\n\n//# sourceURL=webpack://webpack_demo/./src/css/style.css?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoLinkTag.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoLinkTag.js ***!
+  \***************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+eval("\n\nmodule.exports = function (url, options) {\n  options = options || {};\n  options.attributes = typeof options.attributes === \"object\" ? options.attributes : {};\n\n  if (typeof options.attributes.nonce === \"undefined\") {\n    var nonce =  true ? __webpack_require__.nc : 0;\n\n    if (nonce) {\n      options.attributes.nonce = nonce;\n    }\n  }\n\n  var linkElement = document.createElement(\"link\");\n  linkElement.rel = \"stylesheet\";\n  linkElement.href = url;\n  Object.keys(options.attributes).forEach(function (key) {\n    linkElement.setAttribute(key, options.attributes[key]);\n  });\n  options.insert(linkElement);\n  return function (newUrl) {\n    if (typeof newUrl === \"string\") {\n      linkElement.href = newUrl;\n    } else {\n      linkElement.parentNode.removeChild(linkElement);\n    }\n  };\n};\n\n//# sourceURL=webpack://webpack_demo/./node_modules/style-loader/dist/runtime/injectStylesIntoLinkTag.js?");
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \********************************************************************/
+/***/ ((module) => {
+
+"use strict";
+eval("\n\nvar memo = {};\n/* istanbul ignore next  */\n\nfunction getTarget(target) {\n  if (typeof memo[target] === \"undefined\") {\n    var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself\n\n    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {\n      try {\n        // This will throw an exception if access to iframe is blocked\n        // due to cross-origin restrictions\n        styleTarget = styleTarget.contentDocument.head;\n      } catch (e) {\n        // istanbul ignore next\n        styleTarget = null;\n      }\n    }\n\n    memo[target] = styleTarget;\n  }\n\n  return memo[target];\n}\n/* istanbul ignore next  */\n\n\nfunction insertBySelector(insert, style) {\n  var target = getTarget(insert);\n\n  if (!target) {\n    throw new Error(\"Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.\");\n  }\n\n  target.appendChild(style);\n}\n\nmodule.exports = insertBySelector;\n\n//# sourceURL=webpack://webpack_demo/./node_modules/style-loader/dist/runtime/insertBySelector.js?");
 
 /***/ }),
 
@@ -368,7 +400,7 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("de223b2cd0a4eb66d05a")
+/******/ 		__webpack_require__.h = () => ("d15aca52345c086b996b")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -434,7 +466,8 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	__webpack_require__("./node_modules/webpack-dev-server/client/index.js?protocol=ws%3A&hostname=localhost&port=9999&pathname=%2Fws&logging=info&reconnect=10");
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	__webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/css/style.css");
 /******/ 	
 /******/ })()
 ;

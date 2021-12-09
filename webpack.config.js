@@ -4,7 +4,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     entry: {
-        main: './src/index',
+        main: ['./src/index', './src/css/style'],
     },
     output: {
         filename: '[name].js',
@@ -32,12 +32,27 @@ module.exports = {
                 }
             },
             {
+                rules: [
+                    {
+                        test: /\.css$/i,
+                        // use: [
+                        //     'style-loader',
+                        //     'css-loader'
+                        // ],
+                        use: [
+                            {loader: 'style-loader', options: {injectType: 'linkTag'}},
+                            {loader: 'file-loader', options: {name: '[path][name].[ext]'}},
+                        ],
+                    },
+                ],
+            },
+            {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                              name: '[path][name].[ext]',
+                            name: '[path][name].[ext]',
                         },
                     },
                 ],
