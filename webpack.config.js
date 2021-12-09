@@ -1,9 +1,12 @@
 const path = require('path')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        main: './src/index.js',
+        header: './src/header.js',
+    },
     output: {
-        filename: 'main.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
@@ -19,12 +22,12 @@ module.exports = {
         headers: {'Access-Control-Allow-Origin': '*'},
         // watchFiles: [ '../templates/**/*.*', '../src/**/*.*' ],
         devMiddleware: {
-            writeToDisk: false,
+            writeToDisk: true,
         },
         static: [{
             directory: path.join(__dirname, 'dist'),
-            serveIndex: true,
-            watch: true,
+            serveIndex: false,
+            watch: false,
         }]
         // contentBase: path.join(__dirname, 'dist')
     }
