@@ -1,1 +1,2 @@
-console.log("Header!")
+import $ from 'jquery'
+$('h1').css('color', 'white')

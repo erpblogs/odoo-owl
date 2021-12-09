@@ -1,1 +1,2 @@
-console.log("footer!")
+import $ from 'jquery'
+$('h1').css('background', 'purple')
