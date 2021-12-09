@@ -3,7 +3,11 @@ const path = require('path')
 module.exports = {
     entry: {
         main: './src/index.js',
-        header: './src/header.js',
+        layout: [
+            './src/header.js',
+            './src/body.js',
+            './src/footer.js',
+        ],
     },
     output: {
         filename: '[name].js',
