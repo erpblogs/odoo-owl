@@ -1,15 +1,9 @@
 // import 'bootstrap'
 import 'materialize-css'
+import {sum} from '@components/Header';
 
-// $(document).ready(function(){
-//     $('.carousel').carousel({
-//         interval: 1000,
-//         ride: 'carousel'
-//     })
-// })
+console.log(sum(1, 4));
 
-$(document).ready(function(){
-    $('.carousel').carousel();
-
-
-});
+$(document).ready(function () {
+    $('.carousel').carousel()
+})

@@ -3,11 +3,19 @@ const webpack = require('webpack')
 
 module.exports = {
     entry: {
-        main: './src/index.js',
+        main: './src/index',
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
+    },
+    resolve: {
+        alias: {
+            // '@components': path.resolve(__dirname, './src/components'),
+            '@components': path.resolve(__dirname, 'src/components/')
+        },
+        extensions: ['.js', '.css', '.xml', '.json'],
+        // restrictions: [/\.(sass|scss|css)$/],
     },
     plugins: [
         new webpack.ProvidePlugin({
