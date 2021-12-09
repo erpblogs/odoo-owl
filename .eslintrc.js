@@ -3,9 +3,9 @@
   env: {
     node: true,
   },
-  parser: '@typescript-eslint/parser',
+  // parser: '@typescript-eslint/parser',
   extends: [
-    'plugin:@typescript-eslint/recommended'
+    // 'plugin:@typescript-eslint/recommended'
   ],
   parserOptions: {
     ecmaVersion: 2020,

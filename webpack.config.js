@@ -42,6 +42,7 @@ module.exports = {
         }),
         new ESLintPlugin({
             files: 'src/**/*.js',
+            extensions: ['js']
         })
     ],
     devServer: {
