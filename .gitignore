@@ -103,4 +103,5 @@ typings/
 .tern-port
 
 .idea
+.DS_Store
 package-lock.json
