@@ -4,11 +4,6 @@ const webpack = require('webpack')
 module.exports = {
     entry: {
         main: './src/index.js',
-        layout: [
-            './src/header.js',
-            './src/body.js',
-            './src/footer.js',
-        ],
     },
     output: {
         filename: '[name].js',
@@ -22,7 +17,7 @@ module.exports = {
     ],
     devServer: {
         https: false,
-        open: '/',
+        // open: '/',
         compress: true,
         hot: false,
         port: 9999,
