@@ -1,0 +1,2 @@
+# odoo-owl
+Odoo Owl
