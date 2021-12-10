@@ -1,1 +1,1 @@
-// import './css/style'
+import './css/style.css'

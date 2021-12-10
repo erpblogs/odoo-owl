@@ -13,7 +13,7 @@ module.exports = {
     resolve: {
         alias: {
             // '@components': path.resolve(__dirname, './src/components'),
-            '@components': path.resolve(__dirname, 'src/components/')
+            '@components': path.resolve(__dirname, 'src/components/'),
         },
         extensions: ['.js', '.css', '.xml', '.json'],
         // restrictions: [/\.(sass|scss|css)$/],
@@ -32,22 +32,12 @@ module.exports = {
                 }
             },
             {
-                rules: [
-                    {
-                        test: /\.css$/i,
-                        // use: [
-                        //     'style-loader',
-                        //     'css-loader'
-                        // ],
-                        use: [
-                            {loader: 'style-loader', options: {injectType: 'linkTag'}},
-                            {loader: 'file-loader', options: {name: '[path][name].[ext]'}},
-                        ],
-                    },
-                ],
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader' ],
+
             },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
                 use: [
                     {
                         loader: 'file-loader',
