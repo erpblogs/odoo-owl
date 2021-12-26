@@ -2,11 +2,11 @@
   "name": "webpack_demo",
   "version": "1.0.0",
   "description": "Webpack demo",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --config webpack.config.js "
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,14 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "media-query-plugin": "^1.5.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.45.1",
+    "sass-loader": "^12.4.0",
+    "scss": "^0.2.4",
+    "scss-loader": "^0.0.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
@@ -35,6 +43,8 @@
   },
   "dependencies": {
     "bootstrap": "^4.6.1",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.1",
     "jquery": "^3.6.0",
     "materialize-css": "^1.0.0-rc.2",
     "popper.js": "^1.16.1"
