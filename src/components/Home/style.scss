@@ -1,4 +1,4 @@
-@import "@src/css/font.css";
+// @import "../../assets/css/font.css";
 
 .task-list {
   width: 300px;
@@ -6,14 +6,14 @@
   // background: aliceblue;
   padding: 10px;
 
-  background-image: url("@src/assets/bg.jpg");
+  background: url("./img/bg.jpg")no-repeat center right;
 }
 
 .task {
   font-size: 18px;
   color: #111111;
+}
 
-  .done {
-    opacity: 0.7;
-  }
+.task.done {
+  opacity: 0.7;
 }

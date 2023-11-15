@@ -9,6 +9,7 @@ const devMode = process.env.NODE_ENV !== "production"
 
 const host = process.env.HOST || "localhost";
 const port = "9999";
+const publicPath = '/assets';
 
 module.exports = {
     mode: 'development',
@@ -18,13 +19,15 @@ module.exports = {
         // example: './src/example'
     },
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: publicPath,
     },
     resolve: {
         alias: {
             '@components': path.resolve(__dirname, 'src/components/'),
             '@src': path.resolve(__dirname, 'src/'),
+            '@assets': path.resolve(__dirname, 'src/assets/'),
         },
         extensions: ['.js', '.jsx', '.css', '.xml', '.json'],
         // restrictions: [/\.(sass|scss|css)$/],
@@ -39,7 +42,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ['@babel/preset-env'],
                     }
                 }
             },
@@ -47,63 +50,80 @@ module.exports = {
                 test: /\.(sa|sc|c)ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
                     MediaQueryPlugin.loader,
-                    'postcss-loader',
+                    
                     {
-                        loader: 'sass-loader',
+                        loader: 'css-loader',
                         options: {
-                            implementation: require('sass'),
+                            url: true,
+                            import: true,
+                            sourceMap: true,
                         }
-                    }
+                    },
+                    "postcss-loader",
+                    "sass-loader",
                 ],
-                // options: {
-                //     sourceMap: true,
-                // },
-
+                // sideEffects: true, 
+                // include: path.join(__dirname, 'src'),
+                
             },
+            // {
+            //     test: /\.hbs$/,
+            //     use: [
+            //         {
+            //             loader: 'handlebars-loader',
+            //             options: {
+            //                 helperDirs: [
+            //                     path.resolve(__dirname, 'helpers')
+            //                 ]
+            //             }
+            //         }
+            //     ]
+            // },
             {
-                test: /\.hbs$/,
-                use: [
-                    {
-                        loader: 'handlebars-loader',
-                        options: {
-                            helperDirs: [
-                                path.resolve(__dirname, 'helpers')
-                            ]
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
-                // type: "asset",
+                test: /\.(png|jpe?g|gif|svg|eot)$/i,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '[path][name].[ext]',
+                            // name: '[path][name].[ext]',
+                            // name: 'assets/[name].[ext]',
+                            name: 'images/[name].[ext]',
+
+                            publicPath: 'assets/images',
+                            outputPath: 'assets'
                         },
-                    },
+                    }
                 ],
             },
+            {
+                test: /\.(ttf|woff|woff2)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'fonts/[name].[hash:6].[ext]',
+                        publicPath: 'assets/fonts',
+                        outputPath: 'assets'
+                    },
+                },
+            }
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.$': 'jquery',
-            'window.jQuery': 'jquery'
-        }),
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     jQuery: 'jquery',
+        //     'window.$': 'jquery',
+        //     'window.jQuery': 'jquery'
+        // }),
         // new ESLintPlugin({
         //     files: 'src/**/*.js',
         //     extensions: ['js']
         // }),
         new HtmlWebpackPlugin({
-            title: 'Media Query Example',
+            title: 'Home Page',
             filename: 'index.html',
-            template: 'src/index.hbs',
+            template: 'src/index.html',
             inject: true,
             'meta': {
                 'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
@@ -121,26 +141,27 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: devMode ? "[name].css" : "[name].[contenthash].css",
-            chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css",
+            filename: "assets/css/[name].css",
+            // filename: devMode ? "[name].css" : "[name].[contenthash].css",
+            // chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css",
         }),
-        new MediaQueryPlugin({
-            include: [
-                'example',
-                'example2'
-            ],
-            queries: {
-                'print, screen and (min-width: 60em)': 'desktop',
-                'print, screen and (min-width: 60em) and (orientation: landscape)': 'desktop'
-            }
-        })
+        // new MediaQueryPlugin({
+        //     include: [
+        //         'example',
+        //         'example2'
+        //     ],
+        //     queries: {
+        //         'print, screen and (min-width: 60em)': 'desktop',
+        //         'print, screen and (min-width: 60em) and (orientation: landscape)': 'desktop'
+        //     }
+        // })
     ],
     optimization: {
         runtimeChunk: 'single'
     },
     devServer: {
         https: false,
-        open: '/',
+        // open: '/',
         compress: true,
         hot: false,
         port,
