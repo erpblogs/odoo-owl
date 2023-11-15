@@ -7,12 +7,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const MediaQueryPlugin = require("media-query-plugin")
 const devMode = process.env.NODE_ENV !== "production"
 
+const host = process.env.HOST || "localhost";
+const port = "9999";
+
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     entry: {
         main: ['./src/index'],
-        example: './src/example'
+        // example: './src/example'
     },
     output: {
         filename: '[name].js',
@@ -20,11 +23,10 @@ module.exports = {
     },
     resolve: {
         alias: {
-            // '@components': path.resolve(__dirname, './src/components'),
             '@components': path.resolve(__dirname, 'src/components/'),
             '@src': path.resolve(__dirname, 'src/'),
         },
-        extensions: ['.js', '.css', '.xml', '.json'],
+        extensions: ['.js', '.jsx', '.css', '.xml', '.json'],
         // restrictions: [/\.(sass|scss|css)$/],
     },
 
@@ -32,6 +34,7 @@ module.exports = {
         rules: [
             {
                 test: /\.m?js$/,
+                // test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: 'babel-loader',
@@ -50,7 +53,7 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            implementation: require('sass')
+                            implementation: require('sass'),
                         }
                     }
                 ],
@@ -93,28 +96,28 @@ module.exports = {
             'window.$': 'jquery',
             'window.jQuery': 'jquery'
         }),
-        new ESLintPlugin({
-            files: 'src/**/*.js',
-            extensions: ['js']
-        }),
+        // new ESLintPlugin({
+        //     files: 'src/**/*.js',
+        //     extensions: ['js']
+        // }),
         new HtmlWebpackPlugin({
             title: 'Media Query Example',
             filename: 'index.html',
-            template: './src/index.hbs',
-            inject: false,
+            template: 'src/index.hbs',
+            inject: true,
             'meta': {
                 'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
             }
         }),
-        new HtmlWebpackPlugin({
-            title: 'News',
-            filename: 'news.html',
-            template: './src/news.html',
-            inject: false,
-            'meta': {
-                'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
-            }
-        }),
+        // new HtmlWebpackPlugin({
+        //     title: 'News',
+        //     filename: 'news.html',
+        //     template: './src/news.html',
+        //     inject: false,
+        //     'meta': {
+        //         'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        //     }
+        // }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
@@ -137,15 +140,15 @@ module.exports = {
     },
     devServer: {
         https: false,
-        // open: '/',
-        // compress: true,
+        open: '/',
+        compress: true,
         hot: false,
-        port: 9999,
-        host: 'localhost',
+        port,
+        host,
         proxy: {
             '/api': 'http://localhost:9999'
         },
-        headers: {'Access-Control-Allow-Origin': '*'},
+        headers: { 'Access-Control-Allow-Origin': '*' },
         // watchFiles: [ '../templates/**/*.*', '../src/**/*.*' ],
         devMiddleware: {
             writeToDisk: true,
