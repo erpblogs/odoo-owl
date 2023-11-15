@@ -1,4 +1,6 @@
-// import './css/font.css'
-import './css/style.css'
-import './css/home.scss'
+import { mount } from "@odoo/owl";
+import { Root } from "@components/Home/";
 
+
+
+mount(Root, document.body);

@@ -1,0 +1,19 @@
+@import "@src/css/font.css";
+
+.task-list {
+  width: 300px;
+  margin: 50px auto;
+  // background: aliceblue;
+  padding: 10px;
+
+  background-image: url("@src/assets/bg.jpg");
+}
+
+.task {
+  font-size: 18px;
+  color: #111111;
+
+  .done {
+    opacity: 0.7;
+  }
+}
