@@ -1,15 +1,15 @@
 const path = require('path')
 const webpack = require('webpack')
-const ESLintPlugin = require('eslint-webpack-plugin')
+// const ESLintPlugin = require('eslint-webpack-plugin')
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const MediaQueryPlugin = require("media-query-plugin")
-const devMode = process.env.NODE_ENV !== "production"
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+// const MediaQueryPlugin = require("media-query-plugin")
+// const devMode = process.env.NODE_ENV !== "production"
 
 const host = process.env.HOST || "localhost";
 const port = "9999";
-const publicPath = '/assets';
+const publicPath = '/assets/';
 
 module.exports = {
     mode: 'development',
@@ -23,92 +23,92 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: publicPath,
     },
-    resolve: {
-        alias: {
-            '@components': path.resolve(__dirname, 'src/components/'),
-            '@src': path.resolve(__dirname, 'src/'),
-            '@assets': path.resolve(__dirname, 'src/assets/'),
-        },
-        extensions: ['.js', '.jsx', '.css', '.xml', '.json'],
-        // restrictions: [/\.(sass|scss|css)$/],
-    },
+    // resolve: {
+    //     alias: {
+    //         '@components': path.resolve(__dirname, 'src/components/'),
+    //         '@src': path.resolve(__dirname, 'src/'),
+    //         '@assets': path.resolve(__dirname, 'src/assets/'),
+    //     },
+    //     extensions: ['.js', '.jsx', '.css', '.xml', '.json'],
+    //     // restrictions: [/\.(sass|scss|css)$/],
+    // },
 
-    module: {
-        rules: [
-            {
-                test: /\.m?js$/,
-                // test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                    }
-                }
-            },
-            {
-                test: /\.(sa|sc|c)ss$/i,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    MediaQueryPlugin.loader,
+    // module: {
+    //     rules: [
+    //         {
+    //             test: /\.m?js$/,
+    //             // test: /\.jsx?$/,
+    //             exclude: /(node_modules|bower_components)/,
+    //             use: {
+    //                 loader: 'babel-loader',
+    //                 options: {
+    //                     presets: ['@babel/preset-env'],
+    //                 }
+    //             }
+    //         },
+    //         {
+    //             test: /\.(sa|sc|c)ss$/i,
+    //             use: [
+    //                 MiniCssExtractPlugin.loader,
+    //                 MediaQueryPlugin.loader,
                     
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            url: true,
-                            import: true,
-                            sourceMap: true,
-                        }
-                    },
-                    "postcss-loader",
-                    "sass-loader",
-                ],
-                // sideEffects: true, 
-                // include: path.join(__dirname, 'src'),
+    //                 {
+    //                     loader: 'css-loader',
+    //                     options: {
+    //                         url: true,
+    //                         import: true,
+    //                         sourceMap: true,
+    //                     }
+    //                 },
+    //                 "postcss-loader",
+    //                 "sass-loader",
+    //             ],
+    //             // sideEffects: true, 
+    //             // include: path.join(__dirname, 'src'),
                 
-            },
-            // {
-            //     test: /\.hbs$/,
-            //     use: [
-            //         {
-            //             loader: 'handlebars-loader',
-            //             options: {
-            //                 helperDirs: [
-            //                     path.resolve(__dirname, 'helpers')
-            //                 ]
-            //             }
-            //         }
-            //     ]
-            // },
-            {
-                test: /\.(png|jpe?g|gif|svg|eot)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            // name: '[path][name].[ext]',
-                            // name: 'assets/[name].[ext]',
-                            name: 'images/[name].[ext]',
+    //         },
+    //         // {
+    //         //     test: /\.hbs$/,
+    //         //     use: [
+    //         //         {
+    //         //             loader: 'handlebars-loader',
+    //         //             options: {
+    //         //                 helperDirs: [
+    //         //                     path.resolve(__dirname, 'helpers')
+    //         //                 ]
+    //         //             }
+    //         //         }
+    //         //     ]
+    //         // },
+    //         {
+    //             test: /\.(png|jpe?g|gif|svg|eot)$/i,
+    //             use: [
+    //                 {
+    //                     loader: 'file-loader',
+    //                     options: {
+    //                         // name: '[path][name].[ext]',
+    //                         // name: 'assets/[name].[ext]',
+    //                         name: 'images/[name].[ext]',
 
-                            publicPath: 'assets/images',
-                            outputPath: 'assets'
-                        },
-                    }
-                ],
-            },
-            {
-                test: /\.(ttf|woff|woff2)$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: 'fonts/[name].[hash:6].[ext]',
-                        publicPath: 'assets/fonts',
-                        outputPath: 'assets'
-                    },
-                },
-            }
-        ]
-    },
+    //                         publicPath: 'assets/images',
+    //                         outputPath: 'assets'
+    //                     },
+    //                 }
+    //             ],
+    //         },
+    //         {
+    //             test: /\.(ttf|woff|woff2)$/,
+    //             use: {
+    //                 loader: 'file-loader',
+    //                 options: {
+    //                     name: 'fonts/[name].[hash:6].[ext]',
+    //                     publicPath: 'assets/fonts',
+    //                     outputPath: 'assets'
+    //                 },
+    //             },
+    //         }
+    //     ]
+    // },
     plugins: [
         // new webpack.ProvidePlugin({
         //     $: 'jquery',
@@ -138,13 +138,13 @@ module.exports = {
         //         'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
         //     }
         // }),
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: "assets/css/[name].css",
-            // filename: devMode ? "[name].css" : "[name].[contenthash].css",
-            // chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css",
-        }),
+        // new MiniCssExtractPlugin({
+        //     // Options similar to the same options in webpackOptions.output
+        //     // both options are optional
+        //     filename: "assets/css/[name].css",
+        //     // filename: devMode ? "[name].css" : "[name].[contenthash].css",
+        //     // chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css",
+        // }),
         // new MediaQueryPlugin({
         //     include: [
         //         'example',
