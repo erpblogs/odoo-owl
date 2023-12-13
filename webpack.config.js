@@ -11,17 +11,31 @@ const host = process.env.HOST || "localhost";
 const port = "9999";
 const publicPath = '/assets/';
 
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+    title: 'Home Page',
+    filename: 'index.html',
+    template: 'src/index.html',
+    inject: true,
+    'meta': {
+        'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+    }
+})
+
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
     entry: {
-        main: ['./src/index'],
-        // example: './src/example'
+        main: [
+            './src/index', './src/example'
+        ],
     },
     output: {
-        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: publicPath,
+        filename: '[name].js',
+        // filename: '[name]-[fullhash:8].js',
+        // sourceMapFilename: '[name]-[fullhash:8].map',
+        // chunkFilename: '[id]-[fullhash:8].js'
     },
     // resolve: {
     //     alias: {
@@ -110,6 +124,7 @@ module.exports = {
     //     ]
     // },
     plugins: [
+        HTMLWebpackPluginConfig
         // new webpack.ProvidePlugin({
         //     $: 'jquery',
         //     jQuery: 'jquery',
@@ -120,15 +135,7 @@ module.exports = {
         //     files: 'src/**/*.js',
         //     extensions: ['js']
         // }),
-        new HtmlWebpackPlugin({
-            title: 'Home Page',
-            filename: 'index.html',
-            template: 'src/index.html',
-            inject: true,
-            'meta': {
-                'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
-            }
-        }),
+        
         // new HtmlWebpackPlugin({
         //     title: 'News',
         //     filename: 'news.html',
