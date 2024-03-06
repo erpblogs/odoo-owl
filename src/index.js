@@ -1,2 +1,3 @@
-const titleElement = document.querySelector('#title')
-titleElement.style.color = 'green'
+const $ = require('jquery')
+
+$('h1').css('background', 'purple')
