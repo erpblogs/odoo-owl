@@ -1,58 +1,26 @@
 {
-  "name": "webpack_demo",
+  "name": "odoo-owl",
   "version": "1.0.0",
-  "description": "Webpack demo",
-  "main": "webpack.config.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --config webpack.config.js "
+    "dev": "webpack --watch",
+    "serve": "webpack serve --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quangtv-vti/odoo-owl.git"
+    "url": "git+https://github.com/erpblogs/odoo-owl.git"
   },
-  "author": "QuangTv",
+  "author": "QuangTV",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/quangtv-vti/odoo-owl/issues"
+    "url": "https://github.com/erpblogs/odoo-owl/issues"
   },
-  "homepage": "https://github.com/quangtv-vti/odoo-owl#readme",
+  "homepage": "https://github.com/erpblogs/odoo-owl#readme",
   "devDependencies": {
-    "html-webpack-plugin": "^5.5.3",
-    "webpack": "^5.89.0",
+    "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
-  },
-  "dependencies": {
-    "@odoo/owl": "^2.2.6",
-    "bootstrap": "^4.6.1",
-    "handlebars": "^4.7.7",
-    "handlebars-loader": "^1.7.1",
-    "jquery": "^3.6.0",
-    "materialize-css": "^1.0.0-rc.2",
-    "popper.js": "^1.16.1"
-  },
-  "babel": {
-    "plugins": [
-      "@babel/plugin-proposal-class-properties"
-    ],
-    "env": {
-      "test": {
-        "plugins": [
-          "transform-es2015-modules-commonjs"
-        ]
-      }
-    }
-  },
-  "jest": {
-    "verbose": false,
-    "testRegex": "(/tests/.*(test|spec))\\.js?$",
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    "webpack-dev-server": "^5.0.2"
   }
 }
