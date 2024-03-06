@@ -1,4 +1,5 @@
 const path = require('path')
+const { webpack, ProvidePlugin } = require('webpack')
 
 module.exports = {
     entry: {
@@ -20,5 +21,11 @@ module.exports = {
         compress: true,
         port: 8080,
     },
+    plugins: [
+        new ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        })
+    ],
 
 }
