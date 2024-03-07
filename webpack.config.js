@@ -24,8 +24,18 @@ module.exports = {
     plugins: [
         new ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            // cần sử dụng khi thêm jsquery library
+            'window.$': 'jquery',
+            'window.jQuery': 'jquery'
         })
     ],
+
+    // optimization: {
+    //     // Webpack Code Splitting
+    //     splitChunks: {
+    //         chunks: 'all'
+    //     }
+    // }
 
 }
