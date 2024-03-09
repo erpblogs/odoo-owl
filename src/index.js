@@ -3,7 +3,7 @@
 // $('h1').css('background', 'purple')
 
 // const bootstrap = require('bootstrap')
-import 'materialize-css'
+// import 'materialize-css'
 
 // import Carousel from 'bootstrap/js/dist/carousel'
 
@@ -15,6 +15,11 @@ import 'materialize-css'
 // })
 
 
-$(document).ready(function () {
-    $('.carousel').carousel()
-})
+// $(document).ready(function () {
+//     $('.carousel').carousel()
+// })
+
+const author = 'Odooer'
+
+console.log('HeXllo ' + author)
+console.log('Xin chào ' + author)

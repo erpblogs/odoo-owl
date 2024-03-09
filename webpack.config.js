@@ -14,6 +14,9 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     },
+    resolve: {
+        extensions: ['.xml', '.mjs', '.js', '.json']
+    },
     devServer: {
         static: [{
             directory: path.join(__dirname, 'dist')
@@ -30,6 +33,20 @@ module.exports = {
             'window.jQuery': 'jquery'
         })
     ],
+    module: {
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
+    }
 
     // optimization: {
     //     // Webpack Code Splitting
