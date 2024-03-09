@@ -19,7 +19,7 @@
 //     $('.carousel').carousel()
 // })
 
-const author = 'Odooer'
+const author = "Odooer"
 
-console.log('HeXllo ' + author)
-console.log('Xin chào ' + author)
+console.log("Hello " + author)
+console.log("sXin chào " + author)

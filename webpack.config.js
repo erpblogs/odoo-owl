@@ -1,5 +1,6 @@
 const path = require('path')
 const { webpack, ProvidePlugin } = require('webpack')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
     entry: {
@@ -25,6 +26,7 @@ module.exports = {
         port: 8080,
     },
     plugins: [
+        // new ESLintPlugin(),
         new ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
