@@ -49,13 +49,23 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/i,
-                type: 'asset',
-                parser: { 
-                    // dung lượng nhỏ hơn 8kb thì chuyển thành base64 để hiển thị
-                    dataUrlCondition: {
-                        maxSize: 8 * 1024
-                    }
-                }
+                // type: 'asset',
+                // parser: {
+                //     // dung lượng nhỏ hơn 8kb thì chuyển thành base64 để hiển thị
+                //     dataUrlCondition: {
+                //         maxSize: 8 * 1024
+                //     }
+                // },
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            // name: 'images/[name].[ext]',
+                            name: '[path][name].[ext]', // use this to get current asset path and folder
+                        },
+                    },
+
+                ],
 
             }
         ]
