@@ -49,7 +49,14 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/i,
-                type: 'asset/inline'
+                type: 'asset',
+                parser: { 
+                    // dung lượng nhỏ hơn 8kb thì chuyển thành base64 để hiển thị
+                    dataUrlCondition: {
+                        maxSize: 8 * 1024
+                    }
+                }
+
             }
         ]
     }
