@@ -19,7 +19,13 @@
 //     $('.carousel').carousel()
 // })
 
-const author = "Odooer"
+import imgWebpack from '~/assets/images/webpack_image.png'
 
-console.log("Hello " + author)
-console.log("sXin chào " + author)
+function createImgElement() {
+  const imgElement = document.createElement('img')
+  imgElement.src = imgWebpack
+  imgElement.alt = 'webpack 5 with odooer'
+  return imgElement
+}
+
+document.getElementById('root').appendChild(createImgElement())

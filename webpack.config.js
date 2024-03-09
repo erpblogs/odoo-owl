@@ -46,6 +46,10 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 }
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                type: 'asset/inline'
             }
         ]
     }
