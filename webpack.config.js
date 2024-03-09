@@ -6,7 +6,7 @@ module.exports = {
     entry: {
         main: [
             './src/index.js',
-            './src/layout.js',
+            // './src/layout.js',
         ],
         service: './src/service.js'
     },
@@ -60,14 +60,33 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            // name: 'images/[name].[ext]',
-                            name: '[path][name].[ext]', // use this to get current asset path and folder
+                            name: 'images/[name].[ext]',
+                            // name: '[path][name].[ext]', // use this to get current asset path and folder
                         },
                     },
 
                 ],
 
-            }
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            injectType: 'linkTag'
+                        }
+                    },
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            // name: '[path][name].[ext]',
+                            name: 'css/[name].[ext]',
+                        }
+                    },
+                    // 'css-loader',
+                ],
+            },
         ]
     }
 

@@ -1,3 +1,16 @@
+import '~/assets/css/style.css'
+
+import imgWebpack from '~/assets/images/webpack_image.png'
+
+function createImgElement() {
+  const imgElement = document.createElement('img')
+  imgElement.src = imgWebpack
+  imgElement.alt = 'webpack 5 with odooer'
+  return imgElement
+}
+
+document.getElementById('root').appendChild(createImgElement())
+
 // const $ = require('jquery')
 
 // $('h1').css('background', 'purple')
@@ -18,14 +31,3 @@
 // $(document).ready(function () {
 //     $('.carousel').carousel()
 // })
-
-import imgWebpack from '~/assets/images/webpack_image.png'
-
-function createImgElement() {
-  const imgElement = document.createElement('img')
-  imgElement.src = imgWebpack
-  imgElement.alt = 'webpack 5 with odooer'
-  return imgElement
-}
-
-document.getElementById('root').appendChild(createImgElement())
