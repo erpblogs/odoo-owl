@@ -12,9 +12,7 @@ module.exports = {
             './src/index',
             // './src/assets/scss/style.scss',
         ],
-        aboutus: [
-            './src/about/index.js',
-        ],
+        about: { import: './src/about', filename: '[name].js' },
         // service: './src/service.js'
     },
     mode: 'development',
@@ -59,8 +57,9 @@ module.exports = {
             title: 'Home Page',
             filename: 'index.html',
             template: 'src/index.html',
-            inject: true,
+            // inject: true,
             chunks: ['main'],
+            alwaysWriteToDisk: true,
             'meta': {
                 'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
             },
@@ -68,8 +67,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'About us!',
             filename: 'about.html',
-            // template: './src/about/index.html',
-            chunks: ['aboutus']
+            template: './src/about/about.html',
+            chunks: ['about'],
+            alwaysWriteToDisk: true,
 
         }),
     ],
