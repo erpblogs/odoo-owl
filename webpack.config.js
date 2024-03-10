@@ -1,6 +1,7 @@
 const path = require('path')
 const { webpack, ProvidePlugin } = require('webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
     entry: {
@@ -34,7 +35,13 @@ module.exports = {
             // cần sử dụng khi thêm jsquery library
             'window.$': 'jquery',
             'window.jQuery': 'jquery'
-        })
+        }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css",
+        }),
     ],
     module: {
         rules: [
@@ -69,19 +76,22 @@ module.exports = {
             {
                 test: /\.s?css$/i,
                 use: [
-                    {
-                        loader: 'style-loader',
-                    },
+                    // fallback to style-loader in development
+                    process.env.NODE_ENV !== "production"
+                        ? "style-loader"
+                        : MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
-                        options: {
-                            sourceMap: true,
-                        },
+                        options: { sourceMap: true }
                     },
                     {
                         loader: 'sass-loader',
                         options: {
-                            sassOptions: { outputStyle: 'expanded' }
+                            sourceMap: true,
+                            sassOptions: {
+                                // outputStyle: "compressed",
+                                outputStyle: "expanded", // for development
+                            },
                         }
                     }
                 ],
