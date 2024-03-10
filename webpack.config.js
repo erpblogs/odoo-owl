@@ -13,7 +13,8 @@ module.exports = {
     mode: 'development',
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        assetModuleFilename: '[path][name].[ext]'
     },
     resolve: {
         extensions: ['.xml', '.mjs', '.js', '.json']
@@ -48,43 +49,32 @@ module.exports = {
                 }
             },
             {
-                test: /\.(png|jpg|gif)$/i,
-                // type: 'asset',
-                // parser: {
-                //     // dung lượng nhỏ hơn 8kb thì chuyển thành base64 để hiển thị
-                //     dataUrlCondition: {
-                //         maxSize: 8 * 1024
-                //     }
-                // },
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: 'images/[name].[ext]',
-                            // name: '[path][name].[ext]', // use this to get current asset path and folder
-                        },
-                    },
-
-                ],
-
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset',
+                parser: {
+                    // dung lượng nhỏ hơn 8kb thì chuyển thành base64 để hiển thị
+                    dataUrlCondition: {
+                        maxSize: 8 * 1024* 1024
+                    }
+                },
             },
             {
-                test: /\.css$/i,
+                test: /\.(ttf|woff|woff2)$/i,
+                type: 'asset',
+      
+            },
+            {
+                test: /\.s?css$/i,
                 use: [
                     {
                         loader: 'style-loader',
-                        options: {
-                            injectType: 'linkTag'
-                        }
                     },
                     {
-                        loader: 'file-loader',
+                        loader: "css-loader",
                         options: {
-                            // name: '[path][name].[ext]',
-                            name: 'css/[name].[ext]',
-                        }
+                            sourceMap: true,
+                        },
                     },
-                    // 'css-loader',
                 ],
             },
         ]
