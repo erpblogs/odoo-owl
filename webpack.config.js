@@ -2,14 +2,20 @@ const path = require('path')
 const { webpack, ProvidePlugin } = require('webpack')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        main: [
-            './src/index.js',
-            // './src/layout.js',
+        index: [
+            './src/home/index.js',
+            // './src/assets/scss/style.scss',
         ],
-        service: './src/service.js'
+        aboutus: [
+            './src/about/index.js',
+        ],
+        // service: './src/service.js'
     },
     mode: 'development',
     output: {
@@ -29,6 +35,7 @@ module.exports = {
     },
     plugins: [
         // new ESLintPlugin(),
+        new CleanWebpackPlugin(),
         new ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
@@ -41,6 +48,18 @@ module.exports = {
             // both options are optional
             filename: "[name].css",
             chunkFilename: "[id].css",
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Odoo Owl!',
+            template: './src/home/index.html',
+            chunks: ['index']
+        }),
+        new HtmlWebpackPlugin({
+            title: 'About us!',
+            filename: 'about.html',
+            // template: './src/about/index.html',
+            chunks: ['aboutus']
+
         }),
     ],
     module: {
@@ -74,7 +93,21 @@ module.exports = {
 
             },
             {
-                test: /\.s?css$/i,
+                test: /\.css$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                ]
+            },
+            {
+                test: /\.scss$/i,
+                // type: "asset/resource",
+                // generator: {
+                //     filename: "static/css/bundle.css",
+                // },
+                // generator: {
+                //     filename: "bundle.css",
+                //   },
                 use: [
                     // fallback to style-loader in development
                     process.env.NODE_ENV !== "production"
