@@ -3,14 +3,23 @@ import '~/assets/scss/style.scss'
 
 import imgWebpack from '~/assets/images/webpack_image.png'
 
-function createImgElement() {
-  const imgElement = document.createElement('img')
-  imgElement.src = imgWebpack
-  imgElement.alt = 'webpack 5 with odooer'
-  return imgElement
-}
+import { __info__ } from "@odoo/owl";
+import { Root } from "@components/Home/";
+import { mount }from "@odoo/owl";
 
-document.getElementById('root').appendChild(createImgElement())
+
+
+mount(Root, document.getElementById('root'));
+console.log('Hello Odoo Owl!', __info__.version)
+
+// function createImgElement() {
+//   const imgElement = document.createElement('img')
+//   imgElement.src = imgWebpack
+//   imgElement.alt = 'webpack 5 with odooer'
+//   return imgElement
+// }
+
+// document.getElementById('root').appendChild(createImgElement())
 
 // const $ = require('jquery')
 

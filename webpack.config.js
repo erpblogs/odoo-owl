@@ -8,8 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        index: [
-            './src/home/index.js',
+        main: [
+            './src/index',
             // './src/assets/scss/style.scss',
         ],
         aboutus: [
@@ -24,6 +24,12 @@ module.exports = {
         assetModuleFilename: '[path][name].[ext]'
     },
     resolve: {
+        alias: {
+            '@src': path.resolve(__dirname, 'src/'),
+            '@assets': path.resolve(__dirname, 'src/assets/'),
+            '@components': path.resolve(__dirname, 'src/components/'),
+            
+        },
         extensions: ['.xml', '.mjs', '.js', '.json']
     },
     devServer: {
@@ -50,9 +56,14 @@ module.exports = {
             chunkFilename: "[id].css",
         }),
         new HtmlWebpackPlugin({
-            title: 'Odoo Owl!',
-            template: './src/home/index.html',
-            chunks: ['index']
+            title: 'Home Page',
+            filename: 'index.html',
+            template: 'src/index.html',
+            inject: true,
+            chunks: ['main'],
+            'meta': {
+                'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
+            },
         }),
         new HtmlWebpackPlugin({
             title: 'About us!',
@@ -83,6 +94,9 @@ module.exports = {
                         maxSize: 16 * 1024
                     }
                 },
+                // generator: {
+                //     filename: 'static/images/[hash][ext][query]'
+                // }
             },
             {
                 test: /\.(ttf|woff|woff2)$/i,
@@ -100,7 +114,8 @@ module.exports = {
                 ]
             },
             {
-                test: /\.scss$/i,
+                // test: /\.scss$/i,
+                test: /\.(sa|sc)ss$/i,
                 // type: "asset/resource",
                 // generator: {
                 //     filename: "static/css/bundle.css",
@@ -115,7 +130,11 @@ module.exports = {
                         : MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
-                        options: { sourceMap: true }
+                        options: {
+                            url: true,
+                            import: true,
+                            sourceMap: true,
+                        }
                     },
                     {
                         loader: 'sass-loader',

@@ -1,0 +1,36 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #EFF0D2;
+  align-items: center;
+
+  img {
+    margin-left: 2rem;
+    max-height: 75px;
+  }
+
+  .header-links {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-link {
+    margin: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .Header {
+    flex-direction: column;
+
+    img {
+      margin-left: 0;
+    }
+  }
+}
