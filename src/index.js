@@ -1,4 +1,5 @@
 import '~/assets/css/style.css'
+import '~/assets/scss/style.scss'
 
 import imgWebpack from '~/assets/images/webpack_image.png'
 

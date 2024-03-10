@@ -54,14 +54,17 @@ module.exports = {
                 parser: {
                     // dung lượng nhỏ hơn 8kb thì chuyển thành base64 để hiển thị
                     dataUrlCondition: {
-                        maxSize: 8 * 1024* 1024
+                        maxSize: 16 * 1024
                     }
                 },
             },
             {
                 test: /\.(ttf|woff|woff2)$/i,
-                type: 'asset',
-      
+                type: 'asset/resource',
+                generator: {
+                    filename: 'static/fonts/[hash][ext][query]'
+                }
+
             },
             {
                 test: /\.s?css$/i,
@@ -75,6 +78,12 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sassOptions: { outputStyle: 'expanded' }
+                        }
+                    }
                 ],
             },
         ]
