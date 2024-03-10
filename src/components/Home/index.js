@@ -4,6 +4,8 @@ import { Component, xml, mount } from "@odoo/owl";
 
 import '@components/Home/style.scss'
 
+import { Header } from "@components/layouts/Header/";
+
 
 
 class Task extends Component {
@@ -21,6 +23,7 @@ class Task extends Component {
 // Owl Components
 export class Root extends Component {
     static template = xml`
+    <Header />
         <div class="task-list">
             <t t-foreach="tasks" t-as="task" t-key="task.id">
                 <Task task="task" />
@@ -28,7 +31,7 @@ export class Root extends Component {
         </div>
     `;
 
-    static components = { Task };
+    static components = { Task, Header };
 
 
     tasks = [

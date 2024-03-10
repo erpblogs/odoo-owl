@@ -2,10 +2,10 @@
 
 import { Component, xml, mount } from "@odoo/owl";
 
-import '@components/Header/style.scss'
+import '@components/layouts/Header/style.scss'
 
 
-class Header extends Component {
+class Task extends Component {
     static template = xml`
     <div class="task" t-att-class="props.task.isCompleted ? 'done' : ''"> 
         <input type="checkbox" t-att-checked="props.task.isCompleted" />

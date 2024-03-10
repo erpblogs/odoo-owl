@@ -1,0 +1,11 @@
+Installing Node Version Manager
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+Once you have Node Version Manager installed
+
+run in your terminal nvm install 18 to install version 18 of Node
+run nvm use 18 to start using version 18 of Node
+
+
+bootstrap & webpack config 
+https://github.com/twbs/examples/blob/main/webpack
