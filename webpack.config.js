@@ -29,6 +29,37 @@ module.exports = (env, argv) => {
         ],
         module: {
             rules: [
+                {
+                    test: /\.m?js$/,
+                    exclude: /(node_modules|bower_components)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }
+                },
+                {
+                    test: /\.(png|jpe?g|gif|svg)$/i,
+                    type: 'asset',
+                    parser: {
+                        // dung lượng nhỏ hơn 8kb thì chuyển thành base64 để hiển thị
+                        dataUrlCondition: {
+                            maxSize: 16 * 1024
+                        }
+                    },
+                    // generator: {
+                    //     filename: 'static/images/[hash][ext][query]'
+                    // }
+                },
+                {
+                    test: /\.(ttf|woff|woff2)$/i,
+                    type: 'asset/resource',
+                    generator: {
+                        filename: 'static/fonts/[hash][ext][query]'
+                    }
+    
+                },
                 // Configure Webpack to extract inline SVG files.
                 // Bootstrap’s CSS includes multiple references to SVG files via inline data: URIs. If you define a Content Security Policy for your project that blocks data: URIs for images, then these SVG files will not load.  
                 {

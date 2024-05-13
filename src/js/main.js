@@ -11,3 +11,13 @@ import * as bootstrap from 'bootstrap'
 
 // // or, specify which plugins you need:
 // import { Tooltip, Toast, Popover } from 'bootstrap'
+
+
+import { __info__ } from "@odoo/owl";
+// import { Root } from "@components/Home/";
+import { mount }from "@odoo/owl";
+
+
+
+// mount(Root, document.getElementById('root'));
+console.log('Hello Odoo Owl!', __info__.version)
